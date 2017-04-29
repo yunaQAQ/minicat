@@ -1,0 +1,7 @@
+<%= form_tag add_contact_path, method: "patch", class: "navbar-form navbar-left" do %>
+  <div class="form-group">
+    <%= text_field_tag "user[email]", params["user"] && params["user"]["email"],
+      class: "form-control", placeholder: "Email" %>
+  </div>
+  <%= submit_tag "添加", class: "btn btn-default" %>
+<% end %>
