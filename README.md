@@ -2,6 +2,14 @@
 
 这里实现的是一个简单的一对一聊天App。
 
+```
+bundle
+rake db:create
+rake db:migrate
+rake db:seed
+rails server
+```
+
 ## 需求
 
 包含以下功能：
