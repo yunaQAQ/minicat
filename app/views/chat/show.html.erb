@@ -4,9 +4,7 @@
   <p>Recipient: <%= @recipient.email %></p>
   <p>删除这个联系人？<%= link_to "删除", destroy_contact_path, method: "delete" %></p>
   <hr>
-  <div id="new_message">
-    <%= render "chat/form_message" %>
-  </div>
+  <%= render "chat/form_message" %>
   <hr>
   <%= render "chat/messages", chat: @chat %>
 </div>

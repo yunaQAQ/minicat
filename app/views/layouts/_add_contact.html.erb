@@ -1,4 +1,4 @@
-<%= form_tag add_contact_path, method: "patch", class: "navbar-form navbar-left" do %>
+<%= form_tag add_contact_path, method: "patch", class: "navbar-form navbar-left", id: "add_contact", remote: true do %>
   <div class="form-group">
     <%= text_field_tag "user[email]", params["user"] && params["user"]["email"],
       class: "form-control", placeholder: "Email" %>

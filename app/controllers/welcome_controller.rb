@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
         contact = Contact.create(sender_id: current_user.id, recipient_id: recipient.id)
       end
     end
-    redirect_to root_path
+    respond_to :js
   end
 
   private

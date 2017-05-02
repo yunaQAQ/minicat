@@ -11,6 +11,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     $('#messages').prepend data['message']
+    $('#new_message')[0].reset()
 
   speak: ->
     @perform 'speak', chat_id: chatId if chatId = $("#chat").data('chat-id')
