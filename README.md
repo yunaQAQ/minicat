@@ -45,15 +45,15 @@ rails server
 - Chat 类似于聊天室，每个 chat 都能拿到在自己 chat 中的所有 messages。
 - chat 与 user 成多对多关系。
 - 每个 message 绑定产生它的 chat、user 关联。
-- 没有 Contact 表。
 - 联系人列表显示的是该user的 chat 列表。
 
 ## 实现
 ![](doc/minicat.png)
-- 考虑到一对一的功能，选择了方案一。
+- 这里的实现是尝试了方案一。
 - 用户不能添加自己为联系人。
 - 对方从未建立过自己的联系会被标记为陌生人。
 
 ## 可以进一步的地方
 - 方案一中的，contact 承担了发件箱和收件箱的两种功能。容易混淆。
 - 没有成功和错误提示。
+- 建立 Notification 表来推送通知。
