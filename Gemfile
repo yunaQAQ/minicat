@@ -42,10 +42,7 @@ gem 'rolify', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # http://github.com/maxim/bootswatch-rails
 gem 'bootswatch-rails', '~> 3.3', '>= 3.3.5'
-# http://pryrepl.org/
-gem 'pry', '~> 0.10.4'
-# https://github.com/deivid-rodriguez/pry-byebug
-gem 'pry-byebug', '~> 3.4', '>= 3.4.2'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,6 +56,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # http://pryrepl.org/
+  gem 'pry', '~> 0.10.4'
+  # https://github.com/deivid-rodriguez/pry-byebug
+  gem 'pry-byebug', '~> 3.4', '>= 3.4.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

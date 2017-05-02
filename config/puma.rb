@@ -13,7 +13,13 @@ port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+# environment ENV.fetch("RAILS_ENV") { "development" }
+
+bind "unix:/home/yuna/minicat/tmp/minicat.sock"
+environment ENV.fetch("RAILS_ENV") { "production" }
+workers ENV.fetch("WEB_CONCURRENCY") { 2 }
+daemonize true
+pidfile '/home/yuna/minicat/tmp/pids/puma.pid'
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
