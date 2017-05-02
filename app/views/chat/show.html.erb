@@ -1,24 +1,12 @@
-<p>Chat ID: <%= @chat.id %></p>
-<p>Sender: <%= @sender.email %></p>
-<p>Recipient: <%= @recipient.email %></p>
-<p>删除这个联系人？<%= link_to "删除", destroy_contact_path, method: "delete" %></p>
-<hr>
-<%= form_for @new_message, url: send_message_path, class: "form-horizontal" do |f| %>
-  <div class="form-group">
-    <%= f.label :content, class: "control-label" %>
-    <%= f.text_area :content, class: "form-control" %>
+<div id="chat"  data-chat-id="<%= @chat.id %>">
+  <p>Chat ID: <%= @chat.id %></p>
+  <p>Sender: <%= @sender.email %></p>
+  <p>Recipient: <%= @recipient.email %></p>
+  <p>删除这个联系人？<%= link_to "删除", destroy_contact_path, method: "delete" %></p>
+  <hr>
+  <div id="new_message">
+    <%= render "chat/form_message" %>
   </div>
-
-  <%= f.submit "send", class: "btn btn-primary" %>
-<% end %>
-<hr>
-<% @chat.messages.order(created_at: :desc).each do |message| %>
-  <% if message.display %>
-    <p>User: <%= message.user.email %></p>
-    <p>Content: <%= message.content %></p>
-    <% if message.user == current_user %>
-      <p>不显示这条消息？<%= link_to "确认", destroy_message_path(message_id: message.id), method: "delete" %></p>
-    <% end %>
-    <hr>
-  <% end %>
-<% end %>
+  <hr>
+  <%= render "chat/messages", chat: @chat %>
+</div>

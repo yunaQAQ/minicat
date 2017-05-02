@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>Minicat</title>
-    <%= csrf_meta_tags %>
-
+    <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <meta name="current-user" id="<%= @current_user.try(:id) %>">
   </head>
 
   <body>

@@ -1,42 +1,34 @@
 class ChatController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_chat
 
   def show
-    current_chat
     update_recipient_unread_count
     display_contact if @sender_contact.display
-    @new_message = @sender_contact.messages.build
   end
 
   def send_message
-    current_chat
-    @new_message = @sender_contact.messages.build(message_params)
-    if @new_message.save
-      redirect_to @chat
-    else
-      render 'show'
-    end
+    @sender_contact.messages.create(message_params)
   end
 
   def destroy_message
-    current_chat
     message = Message.find params[:message_id]
     message.update(display: false)
     redirect_to @chat
   end
 
   def destroy_contact
-    current_chat
     @sender_contact.update(display: false)
     redirect_to root_path
   end
 
   private
-      def message_params
-        params.require(:message).permit(:content)
-      end
-    def current_chat
-      @chat = Chat.find params[:id]
+    def message_params
+      params.require(:message).permit(:content)
+    end
+
+    def set_chat
+      @chat = Chat.find params[:chat_id]
       @sender = current_user
       @sender_contact = @chat.contacts.find_by(sender_id: @sender.id)
       @recipient = @sender_contact.recipient

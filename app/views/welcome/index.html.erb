@@ -2,8 +2,8 @@
   <h2>你的联系人</h2>
   <ul class="list-group">
     <% current_user.contacts.each do |contact| %>
-    <% if contact.display %>
-        <%= link_to chat_path(:id => contact.chat.id), class: "list-group-item" do %>
+      <% if contact.display %>
+        <%= link_to chat_path(:chat_id => contact.chat.id), class: "list-group-item" do %>
           <% if unread_count(contact) != 0 %>
             <span class="badge"><%= unread_count(contact) %></span>
           <% end %>

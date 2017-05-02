@@ -1,0 +1,7 @@
+<div id="messages">
+  <% chat.messages.order(created_at: :desc).each do |message| %>
+    <% if message.display %>
+      <%= render "chat/message", message: message %>
+    <% end %>
+  <% end %>
+</div>

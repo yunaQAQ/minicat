@@ -10,9 +10,11 @@ class Message < ApplicationRecord
 
   before_create :create_contact, if: "sender_contact.recipient_contact.nil?"
   after_create :update_contact_unread_count
-  after_save :update_chat_last_message_content
-  after_save :update_contact_display
+  after_create :update_chat_last_message_content
+  after_create :update_contact_display
   after_find  :update_is_visited
+
+  after_create_commit { MessageBroadcastJob.perform_later self }
 
   def recipient_contact
     sender_contact.recipient_contact
@@ -42,6 +44,7 @@ class Message < ApplicationRecord
     def update_contact_unread_count
       unread_count = self.sender_contact.unread_count + 1
       self.sender_contact.update(unread_count: unread_count)
+      MessageBroadcastJob.perform_later
     end
 
     def update_is_visited
