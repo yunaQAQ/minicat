@@ -9,6 +9,7 @@ class Contact < ApplicationRecord
 
   before_validation :get_chat_id, if: "chat_id.nil?"
 
+  after_update_commit { ContactUpdateListJob.perform_later self.sender }
   after_create_commit { ContactUpdateListJob.perform_later self.sender }
 
   def recipient_contact
