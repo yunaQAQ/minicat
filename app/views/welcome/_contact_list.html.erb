@@ -1,0 +1,18 @@
+<% contacts.each do |contact| %>
+  <% if contact.display %>
+    <%= link_to chat_path(:chat_id => contact.chat.id), class: "list-group-item" do %>
+      <% if unread_count(contact) != 0 %>
+        <span class="badge"><%= unread_count(contact) %></span>
+      <% end %>
+      <h4 class="list-group-item-heading">
+        <%= contact.recipient.email %>
+        <% if contact.recipient_contact.nil? %>
+          <span>(陌生人)</spn>
+        <% end %>
+      </h4>
+      <p class="list-group-item-text">
+        <%= contact.chat.last_message_content %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>

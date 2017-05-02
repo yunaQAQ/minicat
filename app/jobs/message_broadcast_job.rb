@@ -7,7 +7,6 @@ class MessageBroadcastJob < ApplicationJob
 
   private
     def render_message(message)
-      binding.pry
       ApplicationController.renderer.render(partial: 'chat/message', locals: { message: message })
     end
 end

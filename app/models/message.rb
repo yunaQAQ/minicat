@@ -15,9 +15,14 @@ class Message < ApplicationRecord
   after_find  :update_is_visited
 
   after_create_commit { MessageBroadcastJob.perform_later self }
+  after_create_commit { ContactUpdateListJob.perform_later self.recipient }
 
   def recipient_contact
     sender_contact.recipient_contact
+  end
+
+  def recipient
+    sender_contact.recipient
   end
 
   protected
