@@ -58,3 +58,5 @@ rails server
 - 建立 Notification 表来推送通知。
 - 操作的失败或者成都有一定的信息进行反馈。
 - websocket 断线后重新链接
+
+笔记：[ActionCable岛上历险记](doc/actioncable.md)
