@@ -1,6 +1,10 @@
 <div class="message">
   <p>User: <%= message.user.email %></p>
   <p>Content: <%= message.content %></p>
-  <p>不显示这条消息？<%= link_to "确认", destroy_message_path(message_id: message.id, chat_id: message.chat_id), method: "delete" %></p>
+  <p>
+    不显示这条消息？
+    <%= link_to "确认", destroy_message_path(message_id: message.id, chat_id: message.chat_id),
+      method: "delete" %>
+  </p>
   <hr>
 </div>
