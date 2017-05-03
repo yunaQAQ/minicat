@@ -264,3 +264,17 @@ pidfile '/home/yuna/tmp/pids/puma.pid'
 cd /home/yuna
 puma -C config/puma.rb -e production
 ```
+
+参考:
+
+[RAILS 5 + PUMA + NGINX + ACTIONCABLE](http://spannersoftware.com/rails-5-puma-nginx-actioncable/)
+
+[websocket 序列文章目录](https://www.rails365.net/articles/websocket-xu-lie-wen-zhang-mu-lu)
+
+[rails5之ActionCable](http://www.jianshu.com/p/2bc9533b9bfb)
+
+[聊一聊ActionCable背后的技术](http://www.jianshu.com/p/f08393da80b5)
+
+[Create a Chat App with Rails 5, ActionCable, and Devise](https://www.sitepoint.com/create-a-chat-app-with-rails-5-actioncable-and-devise/)
+
+[Action Cable 概览](http://guides.ruby-china.org/action_cable_overview.html)
