@@ -8,7 +8,7 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
+    stop_all_streams
     stream_from "chat:#{data['chat_id'].to_i}:message"
   end
-
 end
